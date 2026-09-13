@@ -1,0 +1,12 @@
+name: Environment
+on:
+  workflow_dispatch:
+    environment:
+      description: Environment 
+      required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echo
+      run: echo "build ran successfully with variable ${{inputs.environment}}"  
