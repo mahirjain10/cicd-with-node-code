@@ -1,0 +1,14 @@
+name: Checkpoint 12
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: environment name
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: checkpoint12-env
+    steps: 
+      - name: echoing
+        run: echo "we are deployed" 
