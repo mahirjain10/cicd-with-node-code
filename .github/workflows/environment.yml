@@ -1,9 +1,10 @@
 name: Environment
 on:
   workflow_dispatch:
-    environment:
-      description: Environment 
-      required: true
+    inputs:
+      environment:
+        description: Environment 
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
