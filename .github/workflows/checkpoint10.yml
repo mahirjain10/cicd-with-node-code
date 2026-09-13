@@ -33,4 +33,4 @@ jobs:
         uses: actions/download-artifact@v7
         with:
           name: build-output
-        run: cat build-output.txt
+      - run: cat build-output.txt
