@@ -22,7 +22,7 @@ jobs:
       - run: echo "build complete" > build-output.txt
 
       - name: Upload artifacts
-        uses: actions/upload-artifacs@v7
+        uses: actions/upload-artifacts@v7
         with:
           name: build-output
           path: build-output.txt
