@@ -1,0 +1,36 @@
+name: Cache and Artificats
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lets checkout baby
+        uses: action/checkout@v7
+
+      - name: Lets install cache baby
+        uses: action/cache@v6
+        with: 
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      
+      - run: npm install
+      
+      - run: echo "build complete" > build-output.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifacts@v7
+        with:
+          name: build-output
+          path: build-output.txt
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifcats
+        uses: actions/download-artifacts@v8
+        with: 
+          name: build-output
+      - run: cat build-output.txt
