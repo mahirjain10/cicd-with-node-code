@@ -1,4 +1,4 @@
-name: Cache and Artificats
+name: Cache and Artificatss
 on:
   push:
     branches: [main]
