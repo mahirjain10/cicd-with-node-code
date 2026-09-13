@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lets checkout baby
-        uses: action/checkout@v7
+        uses: actions/checkout@v7
 
       - name: Lets install cache baby
-        uses: action/cache@v6
+        uses: actions/cache@v6
         with: 
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
@@ -27,6 +27,7 @@ jobs:
           name: build-output
           path: build-output.txt
   report:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Download artifcats
