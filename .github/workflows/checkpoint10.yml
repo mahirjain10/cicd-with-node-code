@@ -14,7 +14,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{runner.os}}-npm-${{hashFiles('**/package-lock.json')}}
-          restore-key: ${{runner.os}}-npm-
+          restore-keys: ${{runner.os}}-npm-
       
       - run: npm install
       
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: build-output
       - run: cat build-output.txt
