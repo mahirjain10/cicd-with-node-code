@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: staging-approval
     steps:
     - name: Echo
       run: echo "build ran successfully with variable ${{inputs.environment}}"  
